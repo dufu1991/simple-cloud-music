@@ -30,7 +30,7 @@
 
 7. 推荐 PWA 模式使用，较新版的 Chrome 和 Edge 浏览器根据提示安装，Safari 手动安装。
 
-8. 播放器最大化时支持下滑最小化，最小化模式支持左滑切换下一曲。
+8. 播放器最大化时支持下滑最小化，最小化模式支持左滑切换下一曲，滑动支持速度判断。
 
 9. 更多特性开发中。
 
@@ -40,7 +40,7 @@
 
 1. 本应用使用了 PWA 技术，本质还是网页应用，只是对比纯网页体验有所提升。请将图标添加至设备桌面使用，相当于将网页书签放置桌面，方便快速打开，不会占用设备存储空间。
 
-2. Android 设备建议使用较新版本的 Chrome 或 Edge 浏览器直接打开 [简易云音乐](https://simplecloudmusic.com) 使用，国内手机自带的浏览器由于手机厂商的魔改与阉割，对 PWA 的支持一言难尽。正常情况进入页面根据提示安装至桌面即可，或按照下图手动添加。很多手机操作系统默认会关闭 APP 将网页标签放到桌面的权限，可按照以下方式（设置--应用设置--应用管理--找到 Chrome 或者 Edge 浏览器--权限管理--添加桌面快捷方式）打开权限，不同品牌手机有些许差异，请以自己的手机系统为准。注：不知是 Microsoft 和 Google 自己不上架还是被国内应用商店出于商业目的限制了，各大主流应用商店要么无法下载，要么下载的版本都是很多年前的旧版。请自行想办法安装较新版本的 Chrome 或 Edge，或到我提供的这个地址下载。[下载 Edge apk](https://simplecloudmusic.com/assets/microsoft-edge-92-0-902-59.apk)，[下载 Chrome apk](https://simplecloudmusic.com/assets/google-chrome-92-0-4515-131.apk)
+2. Android 设备建议使用较新版本的 Chrome 或 Edge 浏览器直接打开 [简易云音乐](https://simplecloudmusic.com) 使用，国内手机自带的浏览器由于手机厂商的魔改与阉割，对 PWA 的支持一言难尽。正常情况进入页面根据提示安装至桌面即可，或按照下图手动添加。很多手机操作系统默认会关闭 APP 将网页标签放到桌面的权限，可按照以下方式（设置--应用设置--应用管理--找到 Chrome 或者 Edge 浏览器--权限管理--添加桌面快捷方式）打开权限，不同品牌手机有些许差异，请以自己的手机系统为准。注：不知是 Microsoft 和 Google 自己不上架还是被国内应用商店出于商业目的限制了，各大主流应用商店要么无法下载，要么下载的版本都是很多年前的旧版。请自行想办法安装较新版本的 Chrome 或 Edge，或到我提供的这个地址下载。[下载 Edge apk](https://simplecloudmusic.com/assets/microsoft-edge-92-0-902-59.apk)，[下载 Chrome apk](https://simplecloudmusic.com/assets/google-chrome-92-0-4515-131.apk)。
 
 3. iOS 设备安装就很简单，用设备自带的 Safari 浏览器打开 [简易云音乐](https://simplecloudmusic.com)，按照以下提示即可安装至桌面。
 
@@ -86,7 +86,7 @@
 
 - 评论区真是有意思，你管它真假，有意思就行；
 
-- 小众音乐、轻音乐、独立音乐人等模块做的比较好；
+- 小众音乐、轻音乐、独立音乐人等模块做的比较好。
 
 #### 缺点
 
@@ -96,19 +96,19 @@
 
 - 在 UI 设计与用户体验方面即使算上 Apple Music 在内，早期版本的网易云音乐也是一流的。注意是之前的版本，现如今，各种广告植入，各种功能乱塞，各种奇怪的设定，举个简单的例子，歌曲评论默认按照推荐而不是点赞数排列，我想了下按推荐排列就可以在里面夹带私活了呀。
 
-- 吃相难看，音质虚标，会员套路多；
+- 吃相难看，音质虚标，会员套路多。
 
 ### 3. QQ 音乐
 
 #### 优点
 
-- 以 QQ 音乐、酷狗、酷我为代表的的腾讯音乐集团，资源齐全，齐全到国内垄断，垄断到监管部门几次约谈，约谈之后依然敷衍了事，不了了之；
+- 以 QQ 音乐、酷狗、酷我为代表的的腾讯音乐集团，资源齐全，齐全到国内垄断，垄断到监管部门几次约谈，约谈之后依然敷衍了事，不了了之。
 
 #### 缺点
 
 - 界面太乱，花里胡哨，功能杂乱无章。出了个简洁版，只是先把用户当韭菜培养习惯。按照正常商业逻辑，做大做强了就要盈利就一定会夹带私活；没起来？那简单了啊，砍刀部一挥砍刀，这项目没了。不要太相信这些大厂的鬼话了，夸克就是最好的例子。
 
-- 会员没买过，听大家的说法也是套路满满；
+- 会员没买过，听大家的说法也是套路满满。
 
 ### 4. Spotify
 
@@ -118,13 +118,13 @@
 
 - 各个平台的客户端体验都超级棒，尤其是 Spotify Connect 功能，一个第三方开发商都能做到已经很牛逼了；
 
-- 推荐机制与算法很强；
+- 推荐机制与算法很强。
 
 #### 缺点
 
 - 官方渠道会员价相对其他平台来说有点离谱，不过扪心自问了一下，这应该是消费者自己的问题；
 
-- 在大陆地区正常网络就能访问，但是竟然不给个简体中文版本；
+- 在大陆地区正常网络就能访问，但是竟然不给个简体中文版本。
 
 ## 🤷‍♂️ 已知问题或体验欠佳点
 
@@ -146,7 +146,7 @@
 
 9. Android 端使用的时候，会在通知栏显示如下提示，这是浏览器自带的通知，查了下好像没有关闭的 API 。强迫症看不下去可以关闭浏览器的通知权限，但对应的通知栏控制功能也会关闭。
 <p align="center">
-<img src="https://simplecloudmusic.com/assets/notice.jpg" alt="Logo" width="40%" style="max-width:500px">
+<img src="https://simplecloudmusic.com/assets/notice.jpg" alt="notice" width="40%" style="max-width:500px">
 <p>
 
 ## ⚙️ 部署
@@ -188,22 +188,22 @@
 ## 📷 部分截图
 
 <p align="center">
-<img src="https://simplecloudmusic.com/assets/screen1.jpg" alt="Logo" width="100%" style="max-width:500px">
+<img src="https://simplecloudmusic.com/assets/screen1.jpg" alt="screen1" width="100%" style="max-width:500px">
 <p>
 <p align="center">
-<img src="https://simplecloudmusic.com/assets/screen2.jpg" alt="Logo" width="100%" style="max-width:500px">
+<img src="https://simplecloudmusic.com/assets/screen2.jpg" alt="screen2" width="100%" style="max-width:500px">
 <p>
 <p align="center">
-<img src="https://simplecloudmusic.com/assets/screen3.jpg" alt="Logo" width="100%" style="max-width:500px">
+<img src="https://simplecloudmusic.com/assets/screen3.jpg" alt="screen3" width="100%" style="max-width:500px">
 <p>
 <p align="center">
-<img src="https://simplecloudmusic.com/assets/screen4.jpg" alt="Logo" width="100%" style="max-width:500px">
+<img src="https://simplecloudmusic.com/assets/screen4.jpg" alt="Loscreen4go" width="100%" style="max-width:500px">
 <p>
 
 ## 🎨 Design
 
 <p align="center">
-<img src="https://simplecloudmusic.com/assets/cover.jpg" alt="Logo" width="100%" style="max-width:500px">
+<img src="https://simplecloudmusic.com/assets/cover.jpg" alt="cover" width="100%" style="max-width:500px">
 <p>
 
 ## 🪢 杂谈
@@ -211,6 +211,8 @@
 1. 暂时不考虑暗黑模式，因为界面主要是图片区域展示较多，不适合暗黑模式。
 
 ## 🚑 反馈与建议
+
+由于只用了我个人的网易云音乐账号数据测试，避免不了不同数据产生的 bug，可反馈。
 
 - 猿族请到 [GitHub](https://github.com/dufu1991/simple-cloud-music/issues) 提 Issues 。
 - 非猿类可邮件至 <a href="mailto:simplecloudmusic@163.com?subject=简易云音乐反馈与建议">simplecloudmusic@163.com</a>
