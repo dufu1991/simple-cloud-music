@@ -1,0 +1,62 @@
+:root {
+  --primary-text-color: #fa233b;
+
+  --primary-text-light-color: #fda5af;
+
+  --default-text-color: #1f1f1f;
+  --default-background-color: #f4f4f4;
+
+  --default-dark-text-color: #fff;
+  --default-dark-background-color: #171514;
+
+  --secondary-text-color: #494949;
+  --secondary-background-color: #fff;
+
+  --secondary-dark-text-color: #d6d6d6;
+  --secondary-dark-background-color: #424141;
+}
+body {
+  background: var(--default-background-color);
+  color: var(--default-text-color);
+}
+.secondary {
+  background: var(--secondary-background-color);
+  color: var(--secondary-text-color);
+}
+/* @media (prefers-color-scheme: light) {
+  body {
+    background: var(--default-background-color);
+    color: var(--default-text-color);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--default-dark-background-color);
+    color: var(--default-dark-text-color);
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  body {
+    background: var(--default-background-color);
+    color: var(--default-text-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .secondary {
+    background: var(--secondary-background-color);
+    color: var(--secondary-text-color);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .secondary {
+    background: var(--secondary-dark-background-color);
+    color: var(--secondary-dark-text-color);
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  .secondary {
+    background: var(--secondary-background-color);
+    color: var(--secondary-text-color);
+  }
+} */

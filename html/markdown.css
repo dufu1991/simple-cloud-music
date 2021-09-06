@@ -1,0 +1,211 @@
+#markdown {
+  font-size: 16px;
+  line-height: 1.8;
+  padding: 20px;
+  text-align: justify;
+  word-break: break-all;
+}
+#markdown a {
+  text-decoration: underline;
+  color: rgb(97, 80, 255);
+  font-style: italic;
+}
+
+#markdown pre,
+#markdown code {
+  font-size: 14px;
+  font-family: Roboto, 'Courier New', Consolas, Inconsolata, Courier, monospace;
+  margin: auto 5px;
+}
+
+#markdown code {
+  white-space: pre-wrap;
+  border-radius: 2px;
+  display: inline;
+}
+
+#markdown pre {
+  font-size: 15px;
+  line-height: 1.4;
+  display: block !important;
+}
+
+#markdown pre code {
+  white-space: pre;
+  overflow: auto;
+  border-radius: 3px;
+  padding: 1px 1px;
+  display: block !important;
+}
+
+#markdown strong,
+#markdown b {
+  color: #bf360c;
+}
+
+#markdown em,
+#markdown i {
+  color: #fa233b;
+}
+
+#markdown hr {
+  border: 1px solid #bf360c;
+  margin: 15px auto;
+}
+
+#markdown p {
+  margin: 15px 0px !important;
+}
+
+#markdown table,
+#markdown pre,
+#markdown dl,
+#markdown blockquote,
+#markdown q,
+#markdown ul,
+#markdown ol {
+  list-style-type: none;
+  counter-reset: sectioncounter;
+}
+
+#markdown ul li::marker {
+  /* list-style-type: none;
+  content: '•';
+  padding-right: 9px;
+  vertical-align: middle; */
+  content: '• ';
+  color: red;
+}
+#markdown ol li p:before {
+  content: counter(sectioncounter) '. ';
+  counter-increment: sectioncounter;
+}
+#markdown li p {
+  margin: 10px 0 !important;
+}
+
+#markdown ul ul,
+#markdown ul ol,
+#markdown ol ul,
+#markdown ol ol {
+  margin: 0;
+  padding-left: 10px;
+}
+
+#markdown ul {
+  list-style-type: circle;
+}
+
+#markdown dl {
+  padding: 0;
+}
+
+#markdown dl dt {
+  font-size: 10px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#markdown dl dd {
+  margin: 0 0 10px;
+  padding: 0 10px;
+}
+
+#markdown blockquote,
+#markdown q {
+  border-left: 2px solid #fa233b;
+  padding: 0 10px;
+  color: #777;
+  quotes: none;
+  margin-left: 10px;
+}
+
+#markdown blockquote::before,
+#markdown blockquote::after,
+#markdown q::before,
+#markdown q::after {
+  content: none;
+}
+
+#markdown h1,
+#markdown h2,
+#markdown h3,
+#markdown h4,
+#markdown h5,
+#markdown h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-style: bold !important;
+  color: #fa233b !important;
+  text-align: center !important;
+  margin: 15px 0px !important;
+  padding: 5px 0px !important;
+}
+
+#markdown h3,
+#markdown h4,
+#markdown h5,
+#markdown h6 {
+  text-align: left !important;
+}
+
+#markdown h1 {
+  font-size: 24px !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+#markdown h2 {
+  font-size: 20px !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+#markdown h3 {
+  font-size: 18px;
+}
+
+#markdown h4 {
+  font-size: 16px;
+}
+
+#markdown table {
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 10px;
+  font: inherit;
+  border: 0;
+  margin: 0 auto;
+}
+
+#markdown tbody {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#markdown table tr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+#markdown table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+#markdown table tr th,
+#markdown table tr td {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 5px 10px;
+}
+
+#markdown table tr th {
+  font-weight: bold;
+  color: #eee;
+  border: 1px solid #fa233b;
+  background-color: #fa233b;
+}

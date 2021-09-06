@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover,user-scalable=no"
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="description" content="简易云音乐，让听音乐简单一点！" data-rh="true">
+    <meta name="screen-orientation" content="portrait" />
+
+    <meta name="msapplication-TitleColor" content="#fff" />
+
+    <title>简易云音乐</title>
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="description" content="Svelte PWA starter template" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
+    <meta name="apple-mobile-web-app-title" content="简易云音乐" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-ipad3-144.png" />
+
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+    <link rel="stylesheet" href="/global.css?_=1630866835842.1995" />
+    <link rel="stylesheet" href="/normalize.css?_=1630866835842.1995" />
+    <link rel="stylesheet" href="/theme.css?_=1630866835842.1995" />
+    <link rel="stylesheet" href="/markdown.css?_=1627867224051.071" />
+    <!-- <link href="light-mode-theme.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link
+      href="dark-mode-theme.css"
+      rel="stylesheet"
+      type="text/css"
+      media="(prefers-color-scheme: dark)"
+    /> -->
+
+    <link rel="stylesheet" href="/build/bundle.css?_=1630866835842.1995" />
+
+    <!-- You can remove this is you don't want to make your PWA installable -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
+    <script defer src="/build/bundle.js?_=1630866835842.1995"></script>
+  </head>
+
+  <body>
+    <noscript>
+      <div>Oops! Javascript required here! Allow it and try again!</div>
+    </noscript>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js").then(reg => {
+            console.log("Service worker registered.", reg);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
