@@ -148,6 +148,7 @@
 <p align="center">
 <img src="https://simplecloudmusic.com/assets/notice.jpg" alt="notice" width="40%" style="max-width:500px">
 <p>
+10. iOS 的 Safari 在 PWA 模式下不能后台播放音乐？我在 Mac 的 Simulator 里面是完全没问题的，没法玩了啊。库克远程施个法？下一部就换 iPhone。
 
 ## ⚙️ 部署
 
