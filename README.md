@@ -147,9 +147,9 @@
 9. iOS 的 Safari 在 PWA 模式下不能后台播放音乐？我在 Mac 的 Simulator 里面是完全没问题的，没法玩了啊。库克远程施个法？下一部就换 iPhone。
 
 10. Android 端使用的时候，会在通知栏显示如下提示，这是浏览器自带的通知，查了下好像没有关闭的 API 。强迫症看不下去可以关闭浏览器的通知权限，但对应的通知栏控制功能也会关闭。
-<div align="center">
+<p align="center">
 <img src="https://simplecloudmusic.com/assets/notice.jpg" alt="notice" width="40%" style="max-width:500px">
-<div>
+<p>
 
 ## ⚙️ 部署
 
