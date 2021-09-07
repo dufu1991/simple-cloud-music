@@ -211,7 +211,7 @@
 - 因为 UI 界面图片区域较多，暂时不考虑暗黑模式（主要是暗黑模式对设计要求较高，做不好了啦）。
 - 哦，如果想请我喝杯咖啡或是赞助一下服务器费用，也是可以的。
 <p align="center">
-<img src="https://simplecloudmusic.com/assets/lollipop.jpg?v=1.0.0" alt="lollipop" width="100%" style="max-width:300px">
+<img src="https://simplecloudmusic.com/assets/lollipop.jpg?v=1.0.0" alt="lollipop" width="30%" style="max-width:30%">
 <p>
 
 ## 🚑 反馈与建议
