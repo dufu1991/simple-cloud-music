@@ -38,11 +38,12 @@
 
 ## 🍽️ 如何食用
 
-- 本应用使用了 PWA 技术，本质还是网页应用，只是对比纯网页体验有所提升。请将图标添加至设备桌面使用，相当于将网页书签放置桌面，方便快速打开，且不占用设备存储空间。
+1. 本应用使用了 PWA 技术，本质还是网页应用，只是对比纯网页体验有所提升。请将图标添加至设备桌面使用，相当于将网页书签放置桌面，方便快速打开，且不占用设备存储空间。
 
-- Android 设备建议使用较新版本的 Chrome 或 Edge 浏览器直接打开 [简易云音乐](https://simplecloudmusic.com) ，根据提示安装至桌面使用。国内手机自带的浏览器及其他第三方浏览器由于对 chromium 内核的魔改与阉割，对 PWA 的支持一言难尽。正常情况进入页面根据提示安装至桌面即可，或按照下图手动添加。很多手机操作系统默认会关闭 APP 将网页标签放到桌面的权限，可按照以下方式（设置--应用设置--应用管理--找到 Chrome 或者 Edge 浏览器--权限管理--添加桌面快捷方式）打开权限，不同品牌手机有些许差异，请以自己的手机系统为准。注：不知是 Microsoft 和 Google 自己不上架还是被国内应用商店出于商业目的限制了，各大主流应用商店要么无法下载，要么下载的版本都是很多年前的旧版。请自行想办法安装较新版本的 Chrome 或 Edge，或到我提供的这个地址下载。[下载 Edge apk](https://simplecloudmusic.com/assets/microsoft-edge-92-0-902-59.apk)，[下载 Chrome apk](https://simplecloudmusic.com/assets/google-chrome-92-0-4515-131.apk)。
+2. Android 设备建议使用较新版本的 Chrome 或 Edge 浏览器直接打开 [简易云音乐](https://simplecloudmusic.com) ，根据提示安装至桌面使用。国内手机自带的浏览器及其他第三方浏览器由于对 chromium 内核的魔改与阉割，对 PWA 的支持一言难尽。正常情况进入页面根据提示安装至桌面即可，或按照下图手动添加。很多手机操作系统默认会关闭 APP 将网页标签放到桌面的权限，可按照以下方式（设置--应用设置--应用管理--找到 Chrome 或者 Edge 浏览器--权限管理--添加桌面快捷方式）打开权限，不同品牌手机有些许差异，请以自己的手机系统为准。注：不知是 Microsoft 和 Google 自己不上架还是被国内应用商店出于商业目的限制了，各大主流应用商店要么无法下载，要么下载的版本都是很多年前的旧版。请自行想办法安装较新版本的 Chrome 或 Edge，或到我提供的这个地址下载。[下载 Edge apk](https://simplecloudmusic.com/assets/microsoft-edge-92-0-902-59.apk)，[下载 Chrome apk](https://simplecloudmusic.com/assets/google-chrome-92-0-4515-131.apk)。
 
-- iOS 设备安装就很简单了，用自带的 Safari 浏览器打开 [简易云音乐](https://simplecloudmusic.com)，按照以下提示即可安装至桌面。
+3. iOS 设备安装就很简单了，用自带的 Safari 浏览器打开 [简易云音乐](https://simplecloudmusic.com)，按照以下提示即可安装至桌面。
+
 
 <p align="center">
 <img src="https://simplecloudmusic.com/assets/add.jpg" alt="Logo" width="100%" style="max-width:500px">
@@ -147,6 +148,8 @@
 9. iOS 的 Safari 在 PWA 模式下不能后台播放音乐？我在 Mac 的 Simulator 里面是完全没问题的，没法玩了啊。库克远程施个法？下一部就换 iPhone。
 
 10. Android 端使用的时候，会在通知栏显示如下提示，这是浏览器自带的通知，查了下好像没有关闭的 API 。强迫症看不下去可以关闭浏览器的通知权限，但对应的通知栏控制功能也会关闭。
+
+
 <p align="center">
 <img src="https://simplecloudmusic.com/assets/notice.jpg" alt="notice" width="40%" style="max-width:500px">
 <p>
