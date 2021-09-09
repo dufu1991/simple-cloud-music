@@ -5,7 +5,13 @@
 
   import { logout } from '../api/user';
 
-  import { restoreScrollStore, musicQualityStore, isShowTranslateStore, isLoginStore } from '../store/common';
+  import {
+    restoreScrollStore,
+    musicQualityStore,
+    isShowTranslateStore,
+    isLoginStore,
+    isShowCommentStore,
+  } from '../store/common';
 
   import { Confirm } from '../utils/common';
 
@@ -14,6 +20,10 @@
   function switchScrollFun(e) {
     restoreScrollStore.set(e.detail.cellCheck);
     localStorage.setItem('restoreScroll', e.detail.cellCheck ? '1' : '0');
+  }
+  function switchCommentFun(e) {
+    isShowCommentStore.set(e.detail.cellCheck ? '1' : '0');
+    localStorage.setItem('isShowComment', e.detail.cellCheck ? '1' : '0');
   }
   function brFun() {
     push('/brSelect');
@@ -53,6 +63,12 @@
 <div class="setting-page">
   <!-- 设置 -->
   <Cell title="播放音质" on:cellClick={brFun} desc={musicQualityArr[Number($musicQualityStore)]} arrow={true} />
+  <Cell
+    title="热评"
+    on:cellClick={switchCommentFun}
+    desc="Switch"
+    cellCheck={$isShowCommentStore === '0' ? false : true}
+  />
   <Cell title="显示歌词翻译" on:cellClick={translateFun} desc="Switch" cellCheck={$isShowTranslateStore} />
   <Cell
     title="自动滚动"

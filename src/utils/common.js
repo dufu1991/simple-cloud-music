@@ -177,11 +177,12 @@ export function Alert(msg, btnText = '我知道了') {
 /**
  *
  * @param {string} msg 提示文本
- * @param {function}} callback 点击确定后回调
+ * @param {function} callback 点击确定后回调
+ * @param {function} cancelback 点击取消后回调
  * @param {string} yes 确定文字
  * @param {string} no 取消文字
  */
-export function Confirm(msg, callback, yes = '确定', no = '取消') {
+export function Confirm(msg, callback, yes = '确定', no = '取消', cancelback) {
   let m = document.createElement('div');
   let strHtml = `<div>${msg}</div><div style='height:36px;line-height:36px;color:#fff;margin:20px auto 0px;display:flex'><div style='flex:1;background:#e2e2e2;color:#666;line-height:36px;border-radius: 4px;margin:0 5px;' id='ConfirmNo'>${no}</div> <div style='margin:0 5px;flex:1;border-radius: 4px;line-height:36px;background:var(--primary-text-color);' id='ConfirmYes'>${yes}</div></div>`;
   m.innerHTML = strHtml;
@@ -190,6 +191,7 @@ export function Confirm(msg, callback, yes = '确定', no = '取消') {
   document.body.appendChild(m);
   document.getElementById('ConfirmNo').onclick = function () {
     document.body.removeChild(m);
+    cancelback();
   };
   document.getElementById('ConfirmYes').onclick = function () {
     document.body.removeChild(m);

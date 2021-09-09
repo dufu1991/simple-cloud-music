@@ -42,7 +42,7 @@
     playRepeatModelStore,
     currentSongQualityStore,
   } from '../store/play';
-  import { isLoginStore, isHomePageStore, currentDetailSongerIdStore } from '../store/common';
+  import { isLoginStore, isHomePageStore, currentDetailSongerIdStore, isShowCommentStore } from '../store/common';
   import { userLikeSongIdsStore } from '../store/user';
 
   import { timeToMinute, songerListToStr, Toast, ripple } from '../utils/common';
@@ -589,9 +589,11 @@
           </div>
         {/if}
         <!-- 评论 -->
-        <div class="tool-item comment" on:click={toCommentFun} bind:this={commentDom}>
-          <Message2Line size="20" style="vertical-align: middle" />
-        </div>
+        {#if $isShowCommentStore != '0'}
+          <div class="tool-item comment" on:click={toCommentFun} bind:this={commentDom}>
+            <Message2Line size="20" style="vertical-align: middle" />
+          </div>
+        {/if}
       </div>
       <div class="control">
         <div

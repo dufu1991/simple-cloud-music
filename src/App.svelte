@@ -38,7 +38,7 @@
   } from './store/play';
   import { userInfoStore, userLikeSongIdsStore } from './store/user';
 
-  import { timeToMinute, Toast, Alert, getUserAgentInfo, getOsInfo } from './utils/common';
+  import { timeToMinute, Toast, Alert, Confirm, getUserAgentInfo, getOsInfo } from './utils/common';
 
   let audioDOM;
   let audioDOMIsRander = false;
@@ -86,35 +86,78 @@
   // }
 
   onMount(() => {
-    console.log(123, location.hostname, isStandalone, getUserAgentInfo(), getOsInfo());
-    // Alert("app mount");
-    // Alert(getOsInfo().os)
-    // Alert(getUserAgentInfo().browser)
-    // return
-    if (getOsInfo().os === 'iPhone' && getUserAgentInfo().browser != 'safari' && !isStandalone) {
-      Alert('建议 iPhone 在 Safari 的 PWA 模式下使用，可到【关于】页面查看详细说明。');
-    }
-    if (getOsInfo().os === 'Android') {
-      if (!isStandalone) {
-        Alert('建议 PWA 模式下使用，可到【关于】页面查看详细说明。');
-      } else {
-        if (getUserAgentInfo().browser != 'chrome' && getUserAgentInfo().browser != 'edge') {
-          Alert('建议 Android 设备使用 Chrome 或 Edge 浏览器食用。');
-        } else {
-          if (getUserAgentInfo().browser === 'chrome' && getUserAgentInfo().version < 90) {
-            Alert('建议 Android 设备在较新版本的 Chrome 食用。');
+    if (localStorage.getItem('noAlertStart') != '1') {
+      if (getOsInfo().os === 'iPhone' && (getUserAgentInfo().browser != 'safari' || !isStandalone)) {
+        Confirm(
+          '建议 iPhone 在 Safari 的 PWA 模式下使用，可到【关于】页面查看详细说明。',
+          () => {},
+          '我知道了',
+          '不再提醒',
+          () => {
+            localStorage.setItem('noAlertStart', '1');
           }
-          if (getUserAgentInfo().browser === 'edge' && getUserAgentInfo().version < 90) {
-            Alert('建议 Android 设备在较新版本的 Edge 食用。');
+        );
+      }
+      if (getOsInfo().os === 'Android') {
+        if (!isStandalone && localStorage.getItem('isAlertPWA') != '1') {
+          Confirm(
+            '建议 PWA 模式下使用，可到【关于】页面查看详细说明。',
+            () => {},
+            '我知道了',
+            '不再提醒',
+            () => {
+              localStorage.setItem('noAlertStart', '1');
+            }
+          );
+        } else {
+          if (getUserAgentInfo().browser != 'chrome' && getUserAgentInfo().browser != 'edge') {
+            Confirm(
+              '建议 Android 设备使用 Chrome 或 Edge 浏览器食用。',
+              () => {},
+              '我知道了',
+              '不再提醒',
+              () => {
+                localStorage.setItem('noAlertStart', '1');
+              }
+            );
+          } else {
+            if (getUserAgentInfo().browser === 'chrome' && getUserAgentInfo().version < 90) {
+              Confirm(
+                '建议 Android 设备在较新版本的 Chrome 食用。',
+                () => {},
+                '我知道了',
+                '不再提醒',
+                () => {
+                  localStorage.setItem('noAlertStart', '1');
+                }
+              );
+            }
+            if (getUserAgentInfo().browser === 'edge' && getUserAgentInfo().version < 90) {
+              Confirm(
+                '建议 Android 设备在较新版本的 Edge 食用。',
+                () => {},
+                '我知道了',
+                '不再提醒',
+                () => {
+                  localStorage.setItem('noAlertStart', '1');
+                }
+              );
+            }
           }
         }
       }
+      if (getOsInfo().os != 'Android' && getOsInfo().os != 'iPhone') {
+        Confirm(
+          '建议使用 iPhone 或 Android 设备访问。',
+          () => {},
+          '我知道了',
+          '不再提醒',
+          () => {
+            localStorage.setItem('noAlertStart', '1');
+          }
+        );
+      }
     }
-    if (getOsInfo().os != 'Android' && getOsInfo().os != 'iPhone') {
-      Alert('建议使用 iPhone 或 Android 设备访问。');
-    }
-
-    // return
     if ($isLoginStore) {
       userPlaylistFun($userInfoStore);
       likedArtistsFun();

@@ -257,9 +257,7 @@
       <div class="qrcode">
         <QrCode value={qrImg} />
       </div>
-      <div class="tip">
-        直接使用网易云音乐 APP 扫码登录，或截图保存之后使用网易云音乐 APP 扫码登录。
-      </div>
+      <div class="tip">直接使用网易云音乐 APP 扫码登录，或截图保存之后使用网易云音乐 APP 扫码登录。</div>
       <div class="type-switch">
         <span
           on:click={() => {
@@ -339,7 +337,7 @@
 
   {#if type === 'email'}
     <div class="email">
-      <Input label="邮箱" type="text" on:setInput={getEmail} />
+      <Input label="邮箱" maxlength={30} type="text" on:setInput={getEmail} />
       <Input label="密码" type="password" maxlength="40" bind:password_email on:setInput={getpassword_email} />
       <div class="btn">
         <Button on:BtnClick={getClickEmail} type="primary">登录</Button>
@@ -392,7 +390,7 @@
     font-size: 12px;
     line-height: 16px;
     margin: 20px auto;
-    word-break:break-all;
+    word-break: break-all;
   }
   .lead {
     text-align: center;

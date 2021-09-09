@@ -26,3 +26,5 @@ export const isShowTranslateStore = writable(localStorage.getItem('isShowTransla
 export const currentDetailSongerIdStore = writable(0);
 //解决歌手全部歌曲不返回歌曲封面问题
 export const coverImgUrlStore = writable('');
+//是否显示热评入口
+export const isShowCommentStore = writable(localStorage.getItem('isShowComment') === '0' ? '0' : '1');
