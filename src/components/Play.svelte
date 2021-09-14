@@ -211,7 +211,6 @@
         id: $currentSongStore.id,
         like: !isLikeCurrentSong,
       });
-      console.log(333, res);
       if (res.code === 200) {
         const ids = JSON.parse(localStorage.getItem('useLoveSongIds'));
         if (isLikeCurrentSong) {

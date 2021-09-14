@@ -225,3 +225,5 @@
 
 - 猿类请到 GitHub 提 [Issues](https://github.com/dufu1991/simple-cloud-music/issues) 。
 - 非猿类可邮件至 <a href="mailto:simplecloudmusic@163.com?subject=简易云音乐反馈与建议">simplecloudmusic@163.com</a>
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=dufu1991&theme=buefy&show_icons=true)](https://github.com/dufu1991/simple-cloud-music)
