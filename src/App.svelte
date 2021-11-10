@@ -87,9 +87,20 @@
 
   onMount(() => {
     if (localStorage.getItem('noAlertStart') != '1') {
-      if (getOsInfo().os === 'iPhone' && (getUserAgentInfo().browser != 'safari' || !isStandalone)) {
+      // if (getOsInfo().os === 'iPhone' && (getUserAgentInfo().browser != 'safari' || !isStandalone)) {
+      //   Confirm(
+      //     '由于 iOS 限制了 PWA 模式无法后台播放音频。建议 iPhone 在 Safari 的网页模式下使用，可到【关于】页面查看详细说明。',
+      //     () => {},
+      //     '我知道了',
+      //     '不再提醒',
+      //     () => {
+      //       localStorage.setItem('noAlertStart', '1');
+      //     }
+      //   );
+      // }
+      if (getOsInfo().os === 'iPhone' && getUserAgentInfo().browser == 'safari' && isStandalone) {
         Confirm(
-          '由于 iOS 限制了 PWA 模式无法后台播放音频。建议 iPhone 在 Safari 的网页模式下使用，可到【关于】页面查看详细说明。',
+          '由于 iOS 限制了 PWA 模式无法后台播放音频。建议 iPhone 在 Safari 的网页模式下使用。',
           () => {},
           '我知道了',
           '不再提醒',
