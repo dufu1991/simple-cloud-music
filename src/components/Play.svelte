@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, afterUpdate } from 'svelte';
   import { push, location } from 'svelte-stack-router';
   import {
     SkipBackFill,
@@ -20,6 +20,7 @@
     SortDesc,
     HeartPulseLine,
   } from 'svelte-remixicon';
+  import Wave from '@foobar404/wave';
 
   import { Picker, Progress } from '../components/base';
   import Lyric from '../components/Lyric.svelte';
@@ -44,6 +45,7 @@
   } from '../store/play';
   import { isLoginStore, isHomePageStore, currentDetailSongerIdStore, isShowCommentStore } from '../store/common';
   import { userLikeSongIdsStore } from '../store/user';
+  import { showVisualizerStore } from '../store/play';
 
   import { timeToMinute, songerListToStr, Toast, ripple } from '../utils/common';
 
@@ -81,6 +83,8 @@
     maxPlayToTopStore.set(window.screen.height + 'px');
     playIsMaxStore.set(false);
     mainCoverTypeStore.set('cover');
+    let wave = new Wave();
+    wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     if (lyricDom) ripple(lyricDom);
     if (listDom) ripple(listDom);
     if (loveDom) ripple(loveDom);
@@ -92,6 +96,11 @@
     if (nextDom) ripple(nextDom);
     if (coverDom) ripple(coverDom);
   });
+  afterUpdate(() => {
+    console.log(888);
+    // let wave = new Wave();
+    // wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
+  });
   //接收子组件（Progress）发送来的事件（setCurrent），获取当前进度点的值（event.detail.current）。
   function getCurrent(event) {
     window.audioDOM.currentTime = (event.detail.current / 100) * window.audioDOM.duration;
@@ -100,6 +109,7 @@
     endTime = '-' + timeToMinute(window.audioDOM.duration - window.audioDOM.currentTime);
     window.audioDOM.play();
     playStatusStore.set(true);
+    document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
   }
   //接收子组件（Progress）发送来的事件（setTimeCurrent），获取当前进度时间点的值（event.detail.timeCurrent ）。
   function getTimeCurrent(event) {
@@ -112,6 +122,8 @@
     maxPlayToTopStore.set(window.screen.height + 'px');
     playIsMaxStore.set(false);
     mainCoverTypeStore.set('cover');
+    let wave = new Wave();
+    wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
   }
   //切换下一首
   function playNextFun() {
@@ -119,11 +131,15 @@
       //正在私人FM
       getSongUrlFun($FMPlayNextStore, 'next');
       mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else {
       if ($currentSongIndexStore === $currentPlayListStore.length - 1) {
         Toast('已经是最后一首了');
       } else {
         if ($mainCoverTypeStore === 'lyric') mainCoverTypeStore.set('cover');
+        let wave = new Wave();
+        wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
         //随机模式
         if ($playRepeatModelStore === 'shuffle') {
           // Math.floor(Math.random() * 21);
@@ -142,6 +158,8 @@
       Toast('已经是第一首了');
     } else {
       if ($mainCoverTypeStore === 'lyric') mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
       getSongUrlFun($currentPlayListStore[$currentSongIndexStore - 1], 'pre');
     }
   }
@@ -163,6 +181,8 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
+        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+
         if ($isFMPlayStore) {
           //私人FM
           personalFMFun();
@@ -244,6 +264,8 @@
       getlyricFun();
     } else {
       mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     }
   }
   //请求歌词
@@ -330,6 +352,8 @@
       }
     } else {
       mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     }
   }
   // 切换播放循环模式
@@ -349,10 +373,14 @@
   //歌词区域点击
   function lyricClickFun() {
     mainCoverTypeStore.set('cover');
+    let wave = new Wave();
+    wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
   }
   //去歌曲评论页面
   function toCommentFun() {
     mainCoverTypeStore.set('cover');
+    let wave = new Wave();
+    wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     maxPlayToTopStore.set(window.screen.height + 'px');
     playIsMaxStore.set(false);
     if (!($location === '/musicComment')) {
@@ -380,12 +408,16 @@
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else if (touchEndY - touchStartY <= 100) {
       maxPlayToTopStore.set('0px');
     } else if (touchEndY - touchStartY > 100 && (touchEndY - touchStartY) / (touchEndTime - touchStartTime) >= 0.8) {
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else if (touchEndY - touchStartY > 100 && (touchEndY - touchStartY) / (touchEndTime - touchStartTime) <= 0.3) {
       maxPlayToTopStore.set('0px');
     } else if (
@@ -395,6 +427,8 @@
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else {
       maxPlayToTopStore.set('0px');
     }
@@ -437,14 +471,27 @@
           on:touchmove={touchMove}
           bind:this={coverDom}
         >
-          <div>
+          <!-- {#if $showVisualizerStore === '1'} -->
+          <div style="position: relative; display:{$showVisualizerStore === '1' ? 'block' : 'none'}">
+            <canvas id="playgroundCanvas" height="560" width="560" style="transform: scale(0.5);" />
             <img
-              style="width:{$playStatusStore ? '280px' : '240px'};height:{$playStatusStore ? '280px' : '240px'}"
+              style="width:130px;height:130px;border-radius: 50%;position: absolute;top:215px;left:215px"
+              src={$currentSongStore.al.picUrl.replace(/^http:/, 'https:') + '?param=800y800'}
+              alt=""
+              id="playgroundImg"
+              class="cover-img cover-img-rotate"
+            />
+          </div>
+          <!-- {:else} -->
+          <div style="position: relative; display:{$showVisualizerStore === '1' ? 'none' : 'block'}">
+            <img
+              style="width:{$playStatusStore ? '280px' : '240px'};height:{$playStatusStore ? '280px' : '240px'};"
               src={$currentSongStore.al.picUrl.replace(/^http:/, 'https:') + '?param=800y800'}
               alt=""
               class="cover-img"
             />
           </div>
+          <!-- {/if} -->
         </div>
       {:else if $mainCoverTypeStore === 'lyric'}
         <div class="lyric-cover" on:click={lyricClickFun}>
@@ -471,6 +518,8 @@
               if (songers.length === 1) {
                 if (songers[0].id != 0) {
                   mainCoverTypeStore.set('cover');
+                  let wave = new Wave();
+                  wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
                   maxPlayToTopStore.set(window.screen.height + 'px');
                   playIsMaxStore.set(false);
                   isHomePageStore.set(false);
@@ -499,6 +548,8 @@
               class="time-item quality"
               on:click={() => {
                 mainCoverTypeStore.set('cover');
+                let wave = new Wave();
+                wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
                 maxPlayToTopStore.set(window.screen.height + 'px');
                 playIsMaxStore.set(false);
                 if (!($location === '/brSelect')) {
@@ -615,6 +666,7 @@
             if ($playStatusStore) {
               window.audioDOM.pause();
               playStatusStore.set(false);
+              document.getElementById('playgroundImg').style.animationPlayState = 'paused';
               localStorage.setItem('pauseTimes', new Date().getTime());
             } else {
               //解决长时间不播放URL失效问题(暂定30分钟过期)
@@ -623,6 +675,7 @@
               }
               window.audioDOM.play();
               playStatusStore.set(true);
+              document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
             }
           }}
         >
@@ -655,6 +708,8 @@
   on:PickerClick={e => {
     if (e.detail.item.id != 0) {
       mainCoverTypeStore.set('cover');
+      let wave = new Wave();
+      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       isHomePageStore.set(false);
@@ -749,6 +804,21 @@
     object-fit: cover;
     transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
+  }
+  @-webkit-keyframes rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  .cover-img-rotate {
+    /* -webkit-transform: rotate(360deg); */
+    animation: rotation 30s linear infinite;
+    -moz-animation: rotation 30s linear infinite;
+    -webkit-animation: rotation 30s linear infinite;
+    -o-animation: rotation 30s linear infinite;
   }
   .play {
     position: absolute;

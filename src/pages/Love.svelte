@@ -85,6 +85,8 @@
     if ($FMPlayStore.id === $currentSongStore.id) {
       window.audioDOM.play();
       playStatusStore.set(true);
+      document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+
       playIsMaxStore.set(true);
       maxPlayToTopStore.set('0px');
     } else {
@@ -198,6 +200,8 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
+        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+
         if ($isFMPlayStore) {
           currentPlayListStore.set([song]);
           currentSongIndexStore.set(0);

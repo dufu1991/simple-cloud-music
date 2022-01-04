@@ -12,6 +12,7 @@
     isLoginStore,
     isShowCommentStore,
   } from '../store/common';
+  import { showVisualizerStore } from '../store/play';
 
   import { Confirm } from '../utils/common';
 
@@ -56,6 +57,10 @@
   function versionFun() {
     push('/version');
   }
+  function visualizerFun(e) {
+    showVisualizerStore.set(e.detail.cellCheck ? '1' : '0');
+    localStorage.setItem('showVisualizer', e.detail.cellCheck ? '1' : '0');
+  }
 </script>
 
 <NavBar title="设置" />
@@ -76,6 +81,12 @@
     on:cellClick={switchScrollFun}
     desc="Switch"
     cellCheck={$restoreScrollStore}
+  />
+  <Cell
+    title="音频可视化"
+    on:cellClick={visualizerFun}
+    desc="Switch"
+    cellCheck={$showVisualizerStore === '1' ? true : false}
   />
   <Cell title="关于" on:cellClick={aboutFun} arrow={true} />
   <Cell title="版本记录" on:cellClick={versionFun} arrow={true} />

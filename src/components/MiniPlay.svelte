@@ -46,6 +46,7 @@
     if ($playStatusStore) {
       window.audioDOM.pause();
       playStatusStore.set(false);
+      document.getElementById('playgroundImg').style.animationPlayState = 'paused';
       localStorage.setItem('pauseTimes', new Date().getTime());
     } else {
       //解决长时间不播放URL失效问题(暂定30分钟过期)
@@ -54,6 +55,7 @@
       }
       window.audioDOM.play();
       playStatusStore.set(true);
+      document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
     }
   }
   function miniNextFun() {
@@ -91,6 +93,8 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
+        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+
         if ($isFMPlayStore) {
           //私人FM
           personalFMFun();

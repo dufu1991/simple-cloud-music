@@ -34,6 +34,7 @@
     if (song.id === $currentSongStore.id) {
       window.audioDOM.play();
       playStatusStore.set(true);
+      document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
     } else {
       setSongClick(index);
     }

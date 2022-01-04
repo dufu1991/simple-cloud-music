@@ -1,14 +1,14 @@
 <script>
-  import { onMount } from "svelte";
-  import { PlayCircleLine } from "svelte-remixicon";
-  import { onResume } from "svelte-stack-router";
+  import { onMount } from 'svelte';
+  import { PlayCircleLine } from 'svelte-remixicon';
+  import { onResume } from 'svelte-stack-router';
 
-  import { Button, NavBar } from "../components/base";
-  import SongList from "../components/SongList.svelte";
+  import { Button, NavBar } from '../components/base';
+  import SongList from '../components/SongList.svelte';
 
-  import { getSongUrl, getSongDetail } from "../api/song";
+  import { getSongUrl, getSongDetail } from '../api/song';
 
-  import { playListDetailStore, todayListStore } from "../store/playList";
+  import { playListDetailStore, todayListStore } from '../store/playList';
   import {
     currentSongStore,
     playStatusStore,
@@ -17,10 +17,10 @@
     isFMPlayStore,
     playRepeatModelStore,
     currentSongQualityStore,
-  } from "../store/play";
-  import { defaultResumableStore } from "../store/common";
+  } from '../store/play';
+  import { defaultResumableStore } from '../store/common';
 
-  import { Toast } from "../utils/common";
+  import { Toast } from '../utils/common';
 
   $: songList = [];
 
@@ -30,7 +30,7 @@
       for (let i = 0; i < $todayListStore.length; i++) {
         songIdList.push($todayListStore[i].id);
       }
-      getSongDetailFun(songIdList.join(","));
+      getSongDetailFun(songIdList.join(','));
       getSongUrl(songIdList[0]);
     }
   });
@@ -39,7 +39,7 @@
     for (let i = 0; i < $todayListStore.length; i++) {
       songIdList.push($todayListStore[i].id);
     }
-    getSongDetailFun(songIdList.join(","));
+    getSongDetailFun(songIdList.join(','));
     getSongUrl(songIdList[0]);
   });
   async function getSongDetailFun(songIds) {
@@ -50,15 +50,15 @@
     }
   }
   function playListFun(index) {
-    playRepeatModelStore.set("repeat");
+    playRepeatModelStore.set('repeat');
     isFMPlayStore.set(false);
-    localStorage.setItem("isFMPlay", "0");
+    localStorage.setItem('isFMPlay', '0');
     currentPlayListStore.set(songList);
     let ids = [];
     for (let r = 0; r < songList.length; r++) {
       ids.push(songList[r].id);
     }
-    localStorage.setItem("localPlayList", JSON.stringify(ids));
+    localStorage.setItem('localPlayList', JSON.stringify(ids));
     currentSongIndexStore.set(index);
     getSongUrlFun($currentPlayListStore[$currentSongIndexStore]);
   }
@@ -66,19 +66,21 @@
     const res = await getSongUrl(song.id); //获取歌单url
     if (res.code === 200) {
       if (res.data[0].url) {
-        song.url = res.data[0].url.replace(/^http:/, "https:");
+        song.url = res.data[0].url.replace(/^http:/, 'https:');
         if (res.data[0].fee === 1 && res.data[0].freeTrialInfo != null) {
-          currentSongQualityStore.set("试听");
-        } else if (res.data[0].type === "flac") {
-          currentSongQualityStore.set("FLAC");
+          currentSongQualityStore.set('试听');
+        } else if (res.data[0].type === 'flac') {
+          currentSongQualityStore.set('FLAC');
         } else {
           currentSongQualityStore.set(res.data[0].br);
         }
         currentSongStore.set(song);
-        localStorage.setItem("currentSong", JSON.stringify(song));
+        localStorage.setItem('currentSong', JSON.stringify(song));
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
+        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+
         if ($currentSongIndexStore !== $currentPlayListStore.length - 1)
           getSongUrl($currentPlayListStore[$currentSongIndexStore + 1].id);
       } else {

@@ -67,3 +67,5 @@ export const mainCoverTypeStore = writable('cover');
 export const playRepeatModelStore = writable('repeat');
 //当前歌曲码率
 export const currentSongQualityStore = writable(128000);
+//音频可视化
+export const showVisualizerStore = writable(localStorage.getItem('showVisualizer') === '1' ? '1' : '0');

@@ -284,6 +284,8 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
+        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+
         if ($isFMPlayStore) {
           //私人FM播放
           personalFMFun();
@@ -362,7 +364,7 @@
   }
 </script>
 
-<audio bind:this={audioDOM} src="" />
+<audio bind:this={audioDOM} src="" id="audioDom" />
 
 <StackRouter
   {routes}
