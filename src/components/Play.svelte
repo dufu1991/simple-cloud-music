@@ -1,5 +1,5 @@
 <script>
-  import { onMount, afterUpdate } from 'svelte';
+  import { onMount } from 'svelte';
   import { push, location } from 'svelte-stack-router';
   import {
     SkipBackFill,
@@ -96,11 +96,6 @@
     if (nextDom) ripple(nextDom);
     if (coverDom) ripple(coverDom);
   });
-  afterUpdate(() => {
-    console.log(888);
-    // let wave = new Wave();
-    // wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
-  });
   //接收子组件（Progress）发送来的事件（setCurrent），获取当前进度点的值（event.detail.current）。
   function getCurrent(event) {
     window.audioDOM.currentTime = (event.detail.current / 100) * window.audioDOM.duration;
@@ -109,7 +104,8 @@
     endTime = '-' + timeToMinute(window.audioDOM.duration - window.audioDOM.currentTime);
     window.audioDOM.play();
     playStatusStore.set(true);
-    document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+    if (document.getElementById('playgroundImg'))
+      document.getElementById('playgroundImg').style.animationPlayState = 'running';
   }
   //接收子组件（Progress）发送来的事件（setTimeCurrent），获取当前进度时间点的值（event.detail.timeCurrent ）。
   function getTimeCurrent(event) {
@@ -122,8 +118,6 @@
     maxPlayToTopStore.set(window.screen.height + 'px');
     playIsMaxStore.set(false);
     mainCoverTypeStore.set('cover');
-    let wave = new Wave();
-    wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
   }
   //切换下一首
   function playNextFun() {
@@ -131,15 +125,11 @@
       //正在私人FM
       getSongUrlFun($FMPlayNextStore, 'next');
       mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else {
       if ($currentSongIndexStore === $currentPlayListStore.length - 1) {
         Toast('已经是最后一首了');
       } else {
         if ($mainCoverTypeStore === 'lyric') mainCoverTypeStore.set('cover');
-        let wave = new Wave();
-        wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
         //随机模式
         if ($playRepeatModelStore === 'shuffle') {
           // Math.floor(Math.random() * 21);
@@ -158,8 +148,6 @@
       Toast('已经是第一首了');
     } else {
       if ($mainCoverTypeStore === 'lyric') mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
       getSongUrlFun($currentPlayListStore[$currentSongIndexStore - 1], 'pre');
     }
   }
@@ -181,7 +169,8 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
-        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+        if (document.getElementById('playgroundImg'))
+          document.getElementById('playgroundImg').style.animationPlayState = 'running';
 
         if ($isFMPlayStore) {
           //私人FM
@@ -379,8 +368,6 @@
   //去歌曲评论页面
   function toCommentFun() {
     mainCoverTypeStore.set('cover');
-    let wave = new Wave();
-    wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     maxPlayToTopStore.set(window.screen.height + 'px');
     playIsMaxStore.set(false);
     if (!($location === '/musicComment')) {
@@ -408,16 +395,12 @@
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else if (touchEndY - touchStartY <= 100) {
       maxPlayToTopStore.set('0px');
     } else if (touchEndY - touchStartY > 100 && (touchEndY - touchStartY) / (touchEndTime - touchStartTime) >= 0.8) {
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else if (touchEndY - touchStartY > 100 && (touchEndY - touchStartY) / (touchEndTime - touchStartTime) <= 0.3) {
       maxPlayToTopStore.set('0px');
     } else if (
@@ -427,8 +410,6 @@
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     } else {
       maxPlayToTopStore.set('0px');
     }
@@ -518,8 +499,6 @@
               if (songers.length === 1) {
                 if (songers[0].id != 0) {
                   mainCoverTypeStore.set('cover');
-                  let wave = new Wave();
-                  wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
                   maxPlayToTopStore.set(window.screen.height + 'px');
                   playIsMaxStore.set(false);
                   isHomePageStore.set(false);
@@ -548,8 +527,6 @@
               class="time-item quality"
               on:click={() => {
                 mainCoverTypeStore.set('cover');
-                let wave = new Wave();
-                wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
                 maxPlayToTopStore.set(window.screen.height + 'px');
                 playIsMaxStore.set(false);
                 if (!($location === '/brSelect')) {
@@ -666,7 +643,8 @@
             if ($playStatusStore) {
               window.audioDOM.pause();
               playStatusStore.set(false);
-              document.getElementById('playgroundImg').style.animationPlayState = 'paused';
+              if (document.getElementById('playgroundImg'))
+                document.getElementById('playgroundImg').style.animationPlayState = 'paused';
               localStorage.setItem('pauseTimes', new Date().getTime());
             } else {
               //解决长时间不播放URL失效问题(暂定30分钟过期)
@@ -675,7 +653,8 @@
               }
               window.audioDOM.play();
               playStatusStore.set(true);
-              document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+              if (document.getElementById('playgroundImg'))
+                document.getElementById('playgroundImg').style.animationPlayState = 'running';
             }
           }}
         >
@@ -708,8 +687,6 @@
   on:PickerClick={e => {
     if (e.detail.item.id != 0) {
       mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
       maxPlayToTopStore.set(window.screen.height + 'px');
       playIsMaxStore.set(false);
       isHomePageStore.set(false);

@@ -114,7 +114,7 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
-        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+        if (document.getElementById('playgroundImg'))document.getElementById('playgroundImg').style.animationPlayState = 'running';
 
         if ($currentSongIndexStore !== $currentPlayListStore.length - 1)
           getSongUrl($currentPlayListStore[$currentSongIndexStore + 1].id);

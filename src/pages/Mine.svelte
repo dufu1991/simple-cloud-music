@@ -253,7 +253,7 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
-        document.getElementById('playgroundImg')&&document.getElementById('playgroundImg').style.animationPlayState = 'running';
+        if (document.getElementById('playgroundImg'))document.getElementById('playgroundImg').style.animationPlayState = 'running';
 
         isHeart ? playRepeatModelStore.set('heart') : playRepeatModelStore.set('repeat');
         if ($currentSongIndexStore !== $currentPlayListStore.length - 1)
