@@ -228,8 +228,8 @@
     background-image: linear-gradient(to right, rgba(231, 62, 68, 0.01), rgba(231, 62, 68, 1));
     transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
     -webkit-transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-bottom: env(safe-area-inset-bottom);
+    /* padding-bottom: constant(safe-area-inset-bottom); */
+    /* padding-bottom: env(safe-area-inset-bottom); */
   }
   .play {
     z-index: 10;
