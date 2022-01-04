@@ -253,8 +253,6 @@
       getlyricFun();
     } else {
       mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     }
   }
   //请求歌词
@@ -341,8 +339,6 @@
       }
     } else {
       mainCoverTypeStore.set('cover');
-      let wave = new Wave();
-      wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
     }
   }
   // 切换播放循环模式
@@ -362,8 +358,6 @@
   //歌词区域点击
   function lyricClickFun() {
     mainCoverTypeStore.set('cover');
-    let wave = new Wave();
-    wave.fromElement('audioDom', 'playgroundCanvas', { type: 'shine', colors: ['white', 'red', 'blue'] });
   }
   //去歌曲评论页面
   function toCommentFun() {
@@ -443,6 +437,28 @@
       >
         <div class="down-line" />
       </div>
+      <div
+        on:click={handleDown}
+        style="height:54vh;position: relative;justify-content: center;align-content: center; display:{$mainCoverTypeStore ===
+          'cover' && $showVisualizerStore === '1'
+          ? 'flex'
+          : 'none'}"
+      >
+        <canvas
+          id="playgroundCanvas"
+          height="720"
+          width="720"
+          style="position: absolute;top:-180px;transform: scale(0.5);"
+        />
+        <img
+          style="width:170px;height:170px;border-radius: 50%;position: absolute;top:95px;"
+          src={$currentSongStore.al.picUrl.replace(/^http:/, 'https:') + '?param=800y800'}
+          alt=""
+          id="playgroundImg"
+          class="cover-img cover-img-rotate"
+        />
+      </div>
+
       {#if $mainCoverTypeStore === 'cover'}
         <div
           class="cover"
@@ -452,18 +468,6 @@
           on:touchmove={touchMove}
           bind:this={coverDom}
         >
-          <!-- {#if $showVisualizerStore === '1'} -->
-          <div style="position: relative; display:{$showVisualizerStore === '1' ? 'block' : 'none'}">
-            <canvas id="playgroundCanvas" height="560" width="560" style="transform: scale(0.5);" />
-            <img
-              style="width:130px;height:130px;border-radius: 50%;position: absolute;top:215px;left:215px"
-              src={$currentSongStore.al.picUrl.replace(/^http:/, 'https:') + '?param=800y800'}
-              alt=""
-              id="playgroundImg"
-              class="cover-img cover-img-rotate"
-            />
-          </div>
-          <!-- {:else} -->
           <div style="position: relative; display:{$showVisualizerStore === '1' ? 'none' : 'block'}">
             <img
               style="width:{$playStatusStore ? '280px' : '240px'};height:{$playStatusStore ? '280px' : '240px'};"
@@ -472,7 +476,6 @@
               class="cover-img"
             />
           </div>
-          <!-- {/if} -->
         </div>
       {:else if $mainCoverTypeStore === 'lyric'}
         <div class="lyric-cover" on:click={lyricClickFun}>

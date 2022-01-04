@@ -46,7 +46,8 @@
     if ($playStatusStore) {
       window.audioDOM.pause();
       playStatusStore.set(false);
-      if (document.getElementById('playgroundImg'))document.getElementById('playgroundImg').style.animationPlayState = 'paused';
+      if (document.getElementById('playgroundImg'))
+        document.getElementById('playgroundImg').style.animationPlayState = 'paused';
       localStorage.setItem('pauseTimes', new Date().getTime());
     } else {
       //解决长时间不播放URL失效问题(暂定30分钟过期)
@@ -55,7 +56,8 @@
       }
       window.audioDOM.play();
       playStatusStore.set(true);
-      if (document.getElementById('playgroundImg'))document.getElementById('playgroundImg').style.animationPlayState = 'running';
+      if (document.getElementById('playgroundImg'))
+        document.getElementById('playgroundImg').style.animationPlayState = 'running';
     }
   }
   function miniNextFun() {
@@ -93,7 +95,8 @@
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
-        if (document.getElementById('playgroundImg'))document.getElementById('playgroundImg').style.animationPlayState = 'running';
+        if (document.getElementById('playgroundImg'))
+          document.getElementById('playgroundImg').style.animationPlayState = 'running';
 
         if ($isFMPlayStore) {
           //私人FM
@@ -219,10 +222,10 @@
   .progress {
     z-index: 100;
     position: absolute;
-    bottom: 0;
+    top: 0;
     width: 0%;
-    height: 60px;
-    background-image: linear-gradient(to right, rgba(197, 197, 197, 0.01), rgba(197, 197, 197, 0.3));
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(231, 62, 68, 0.01), rgba(231, 62, 68, 1));
     transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
     -webkit-transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
     padding-bottom: constant(safe-area-inset-bottom);
@@ -239,9 +242,9 @@
     text-align: center;
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
-    border-top: 1px solid rgba(197, 197, 197, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* border-top: 1px solid rgba(197, 197, 197, 0.4); */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.7);
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;

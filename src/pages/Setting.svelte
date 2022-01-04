@@ -83,7 +83,8 @@
     cellCheck={$restoreScrollStore}
   />
   <Cell
-    title="音频可视化"
+    title="音乐动效"
+    titleDesc="如果卡顿请关闭"
     on:cellClick={visualizerFun}
     desc="Switch"
     cellCheck={$showVisualizerStore === '1' ? true : false}

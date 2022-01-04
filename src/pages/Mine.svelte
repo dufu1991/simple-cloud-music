@@ -473,7 +473,7 @@
     margin-right: 10px;
     border-radius: 50%;
     overflow: hidden;
-    border: rgb(214, 214, 214) solid 1px;
+    border: rgb(236, 236, 236) solid 1px;
   }
   .avatar img {
     width: 100%;
