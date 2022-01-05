@@ -94,7 +94,7 @@
   <div class="bottom">
     <Button on:BtnClick={logoutFun}>退出登录</Button>
   </div>
-  <div class="version">V 1.0.1</div>
+  <div class="version">V 1.0.2</div>
 </div>
 
 <style>
