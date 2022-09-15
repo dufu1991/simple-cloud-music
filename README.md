@@ -1,3 +1,6 @@
+
+<p align="center"><font color="#dd0000">域名（重新备案中，约15天）暂无法访问。</font></p>
+
 <p align="center">
   <a href="https://simplecloudmusic.com" target="blank">
     <img src="https://simplecloudmusic.com/assets/logo.png" alt="Logo" width="30%">

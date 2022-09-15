@@ -755,8 +755,8 @@
         z-index: 999;
         background-size: cover !important;
         background-position: center !important;
-        transition: top 0.6s cubic-bezier(0.14, 0.85, 0.65, 0.97);
-        -webkit-transition: top 0.6s cubic-bezier(0.14, 0.85, 0.65, 0.97);
+        transition: top 0.4s cubic-bezier(0.14, 0.85, 0.65, 0.97);
+        -webkit-transition: top 0.4s cubic-bezier(0.14, 0.85, 0.65, 0.97);
         padding-bottom: constant(safe-area-inset-bottom);
         padding-bottom: env(safe-area-inset-bottom);
     }
