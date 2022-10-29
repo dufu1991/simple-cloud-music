@@ -51,7 +51,7 @@
                     name={play.name}
                     coverImgUrl={play.coverImgUrl || play.picUrl}
                     id={play.id}
-                    playCount={play.playCount}
+                    playCount={play.playCount || play.playcount}
                     copywriter={play.copywriter ? play.copywriter : ''}
                     trackCount={play.trackCount}
                 />
