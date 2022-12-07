@@ -1,3 +1,7 @@
+# 🉐 停止服务
+
+收到网易云音乐官方邮件，说简易云音乐侵权，将不再对外提供服务。
+
 <p align="center">
   <a href="https://simplecloudmusic.com" target="blank">
     <img src="https://simplecloudmusic.com/assets/logo.png" alt="Logo" width="30%">
